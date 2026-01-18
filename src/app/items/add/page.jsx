@@ -23,6 +23,13 @@ export default function AddItemPage() {
     },
   });
 
+  if (status === "loading")
+    return <div className="p-20 text-center">Loading...</div>;
+  if (status === "unauthenticated") {
+    router.push("/login");
+    return null;
+  }
+
   const onSubmit = async (data) => {
     setIsSubmitting(true);
 
